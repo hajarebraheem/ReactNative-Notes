@@ -1,11 +1,22 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {mapStateToProps, mapDispatchToProps} from '../../redux/connect/connect';
+import {AnyAction, bindActionCreators, Dispatch} from 'redux';
+import {login} from '../../redux/actions';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
 import {View, Pressable, TextInput, Image, Text} from 'react-native';
 import {styles} from './Style';
 import colors from '../../colors-config/colors';
+
+const mapStateToProps = (state: {auth: any; notes: any}) => ({
+  states: {
+    auth: state.auth,
+  },
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
+  actions: bindActionCreators({login}, dispatch),
+});
 
 export const Login = ({
   navigation,

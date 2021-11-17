@@ -1,17 +1,28 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {connect} from 'react-redux';
 import colors from './colors-config/colors';
 import Login from './screens/Login/Login';
 import Typing from './screens/Typing/Typing';
 import Result from './screens/Result/Result';
 
-const Main = () => {
+const mapStateToProps = (state: {auth: any; notes: any}) => ({
+  states: {
+    auth: state.auth,
+  },
+});
+
+export const Main = (props: {states: {auth: {value: any}}}) => {
   const Stack = createNativeStackNavigator();
+  let screen;
+
+  props.states.auth.value ? (screen = 'Typing') : (screen = 'Login');
+
   return (
     <NavigationContainer>
       <Stack.Navigator
-        initialRouteName="Typing"
+        initialRouteName={screen}
         screenOptions={{
           headerTransparent: true,
           headerTintColor: colors.yellow,
@@ -34,4 +45,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default connect(mapStateToProps)(Main);

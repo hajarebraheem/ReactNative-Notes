@@ -1,6 +1,7 @@
 import React, {useState, useLayoutEffect} from 'react';
 import {connect} from 'react-redux';
-import {mapStateToProps, mapDispatchToProps} from '../../redux/connect/connect';
+import {AnyAction, bindActionCreators, Dispatch} from 'redux';
+import {logout, notes} from '../../redux/actions';
 import {Logout} from '../../helper/Logout';
 import {
   View,
@@ -12,6 +13,23 @@ import {
 } from 'react-native';
 import colors from '../../colors-config/colors';
 import {styles} from './Style';
+
+const mapStateToProps = (state: {auth: any; notes: any}) => ({
+  states: {
+    auth: state.auth,
+    notes: state.notes,
+  },
+});
+
+const ActionCreators = {
+  logout,
+  notes,
+};
+
+const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
+  actions: bindActionCreators(ActionCreators, dispatch),
+});
+
 export const Typing = ({
   navigation,
   actions,

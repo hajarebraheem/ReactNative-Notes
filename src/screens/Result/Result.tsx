@@ -1,9 +1,28 @@
 import React, {useLayoutEffect} from 'react';
 import {connect} from 'react-redux';
-import {mapStateToProps, mapDispatchToProps} from '../../redux/connect/connect';
+import {AnyAction, bindActionCreators, Dispatch} from 'redux';
+import {logout, notes, removeAllNotes, removeNote} from '../../redux/actions';
 import {Logout} from '../../helper/Logout';
 import {View, Text, ScrollView, TouchableOpacity} from 'react-native';
 import {styles} from './Style';
+
+export const mapStateToProps = (state: {auth: any; notes: any}) => ({
+  states: {
+    notes: state.notes,
+  },
+});
+
+const ActionCreators = {
+  logout,
+  notes,
+  removeAllNotes,
+  removeNote,
+};
+
+export const mapDispatchToProps = (dispatch: Dispatch<AnyAction>) => ({
+  actions: bindActionCreators(ActionCreators, dispatch),
+});
+
 export const Result = ({
   navigation,
   actions,
