@@ -3,7 +3,7 @@ export const login = (name: any) => ({
   payload: name,
 });
 
-export const loggout = () => ({
+export const logout = () => ({
   type: 'LOGOUT',
   payload: null,
 });

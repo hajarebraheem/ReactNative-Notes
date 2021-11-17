@@ -1,5 +1,5 @@
 import {AnyAction, bindActionCreators, Dispatch} from 'redux';
-import {login, loggout, notes, removeAllNotes, removeNote} from '../actions';
+import {login, logout, notes, removeAllNotes, removeNote} from '../actions';
 
 export const mapStateToProps = (state: {auth: any; notes: any}) => ({
   states: {
@@ -10,7 +10,7 @@ export const mapStateToProps = (state: {auth: any; notes: any}) => ({
 
 const ActionCreators = {
   login,
-  loggout,
+  logout,
   notes,
   removeAllNotes,
   removeNote,

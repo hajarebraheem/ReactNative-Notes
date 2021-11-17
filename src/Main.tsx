@@ -2,9 +2,9 @@ import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import colors from './colors-config/colors';
-import Login from './screens/Login';
-import Typing from './screens/Typing';
-import Result from './screens/Result';
+import Login from './screens/Login/Login';
+import Typing from './screens/Typing/Typing';
+import Result from './screens/Result/Result';
 
 const Main = () => {
   const Stack = createNativeStackNavigator();

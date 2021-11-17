@@ -1,17 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {mapStateToProps, mapDispatchToProps} from '../redux/connect/connect';
+import {mapStateToProps, mapDispatchToProps} from '../../redux/connect/connect';
 import {Formik} from 'formik';
 import * as Yup from 'yup';
-import {
-  View,
-  StyleSheet,
-  Pressable,
-  TextInput,
-  Image,
-  Text,
-} from 'react-native';
-import colors from '../colors-config/colors';
+import {View, Pressable, TextInput, Image, Text} from 'react-native';
+import {styles} from './Style';
+import colors from '../../colors-config/colors';
 
 export const Login = ({
   navigation,
@@ -39,7 +33,7 @@ export const Login = ({
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={require('../images/drawing.png')}
+              source={require('../../images/drawing.png')}
             />
           </View>
         </View>
@@ -95,58 +89,5 @@ export const Login = ({
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.white,
-    paddingHorizontal: 30,
-  },
-  headerContainer: {
-    paddingTop: 160,
-  },
-  headerText: {
-    fontSize: 24,
-    fontWeight: 'bold',
-  },
-  grayText: {
-    color: colors.lighterBlue,
-  },
-  logoContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingTop: 30,
-  },
-  logo: {
-    width: 150,
-    height: 150,
-  },
-  inputContainer: {
-    paddingTop: 40,
-  },
-  input: {
-    height: 35,
-    borderBottomColor: colors.lighterBlue,
-    borderBottomWidth: 1,
-    marginTop: 20,
-    color: colors.black,
-  },
-  error: {
-    fontSize: 12,
-    color: 'red',
-  },
-  button: {
-    backgroundColor: colors.blue,
-    borderRadius: 3,
-    marginTop: 30,
-  },
-  buttonText: {
-    color: colors.white,
-    fontSize: 18,
-    lineHeight: 35,
-    textAlign: 'center',
-    fontWeight: 'bold',
-  },
-});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
