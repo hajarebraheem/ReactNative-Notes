@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {connect} from 'react-redux';
@@ -15,9 +15,10 @@ const mapStateToProps = (state: {auth: any; notes: any}) => ({
 
 export const Main = (props: {states: {auth: {value: any}}}) => {
   const Stack = createNativeStackNavigator();
-  let screen;
-
-  props.states.auth.value ? (screen = 'Typing') : (screen = 'Login');
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [screen, setScreen] = useState(
+    props.states.auth.value ? 'Typing' : 'Login',
+  );
 
   return (
     <NavigationContainer>

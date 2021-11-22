@@ -91,7 +91,7 @@ export const Typing = ({
           <View style={styles.header}>
             <Image
               style={styles.image}
-              source={require('../../images/idea.png')}
+              source={require('../../assets/idea.png')}
             />
 
             <View style={styles.insideHeader}>

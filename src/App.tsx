@@ -3,13 +3,14 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 import Main from './Main';
 import configureStore from './Store';
-import SplashScreen from 'react-native-splash-screen';
-
+import RNBootSplash from 'react-native-bootsplash';
 const App = () => {
   const {store, persistor} = configureStore();
 
   useEffect(() => {
-    SplashScreen.hide();
+    setTimeout(() => {
+      RNBootSplash.hide();
+    }, 2000);
   }, []);
 
   return (

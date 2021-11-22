@@ -44,7 +44,7 @@ export const Login = ({
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
-              source={require('../../images/drawing.png')}
+              source={require('../../assets/drawing.png')}
             />
           </View>
         </View>
